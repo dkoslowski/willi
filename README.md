@@ -1,5 +1,5 @@
 # willi
-A weeled robot with ROS2 and Ubuntu 22 LTS.
+A weeled robot with ROS2 Humble and Ubuntu 22 LTS.
 
 ## ROS2 Installation
 [Ubuntu (Debian packages)](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
