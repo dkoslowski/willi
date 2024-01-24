@@ -11,4 +11,12 @@ sudo apt install joystick jstest-gtk evtest
 sudo usermod -aG input $USER
 ```
 
-
+## ROS2 Environment
+Add to `~/.bashrc`:
+```
+# ROS 2
+# Replace ".bash" with your shell if you're not using bash
+# Possible values are: setup.bash, setup.sh, setup.zsh
+source /opt/ros/humble/setup.bash
+export ROS_DOMAIN_ID=68
+```
