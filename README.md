@@ -5,5 +5,5 @@ A weeled robot with ROS2
 
 ```
 sudo apt install joystick jstest-gtk evtest
-sudo usermod -aG input dennis
+sudo usermod -aG input $USER
 ```
