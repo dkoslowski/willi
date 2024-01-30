@@ -20,3 +20,11 @@ Add to `~/.bashrc`:
 source /opt/ros/humble/setup.bash
 export ROS_DOMAIN_ID=68
 ```
+
+## Creating workspace
+```
+mkdir -p willi_ws/src
+cd willi_ws
+colcon build --symlink-install
+cd src/
+```
