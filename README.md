@@ -27,4 +27,5 @@ mkdir -p willi_ws/src
 cd willi_ws
 colcon build --symlink-install
 cd src/
+git clone git@github.com:dkoslowski/willi.git .
 ```
