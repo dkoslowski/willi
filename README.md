@@ -23,9 +23,8 @@ export ROS_DOMAIN_ID=68
 
 ## Creating workspace
 ```
-mkdir -p willi_ws/src
+mkdir willi_ws
 cd willi_ws
 colcon build --symlink-install
-cd src/
-git clone git@github.com:dkoslowski/willi.git .
+git clone git@github.com:dkoslowski/willi.git src
 ```
