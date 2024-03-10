@@ -20,6 +20,11 @@ source /opt/ros/humble/setup.bash
 export ROS_DOMAIN_ID=68
 ```
 
+## Install colcon
+```
+sudo apt install python3-colcon-common-extensions
+```
+
 ## Creating workspace
 ```
 mkdir willi_ws
