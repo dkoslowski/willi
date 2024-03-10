@@ -29,7 +29,7 @@ git clone git@github.com:dkoslowski/willi.git src
 ```
 ## Ubuntu tweaks
 
-### Disable services causing 2 min delay at startup
+### Disable services causing startup delay on RasPi
 These ubuntu services want the `systemd-networkd-wait-online.service` which runs into 2 minutes timeout delaying the startup. Just disable them.
 ```
 sudo systemctl dislable cloud-config open-iscsi cloud-final iscsid
