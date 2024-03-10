@@ -30,7 +30,7 @@ git clone git@github.com:dkoslowski/willi.git src
 ## Ubuntu tweaks
 
 ### Disable services causing 2 min delay at startup
-These ubuntu services want the _systemd-networkd-wait-online.service_ which runs into 2 minutes timeout delaying the stratup. Just disable them.
+These ubuntu services want the `systemd-networkd-wait-online.service` which runs into 2 minutes timeout delaying the startup. Just disable them.
 ```
 sudo systemctl dislable cloud-config open-iscsi cloud-final iscsid
 sudo systemctl daemon-reload
