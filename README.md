@@ -1,8 +1,8 @@
 # willi
-A weeled robot with ROS2 Humble and Ubuntu 22 LTS.
+A weeled robot with ROS2 Jazzy and Ubuntu 24 LTS.
 
 ## ROS2 Installation
-[Ubuntu (Debian packages)](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+[Ubuntu (Debian packages)](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
 
 ## Additional joystick related packages
 ```
@@ -34,7 +34,7 @@ git clone git@github.com:dkoslowski/willi.git src
 ```
 ## Ubuntu tweaks
 
-### Disable services causing startup delay on RasPi
+### Disable services causing startup delay on RasPi (obsolete?)
 These ubuntu services want the `systemd-networkd-wait-online.service` which runs into 2 minutes timeout delaying the startup. Just disable them.
 ```
 sudo systemctl dislable cloud-config open-iscsi cloud-final iscsid
