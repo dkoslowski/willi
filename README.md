@@ -15,36 +15,36 @@ export ROS_DOMAIN_ID=68
 ```
 ## Install colcon
 ```
-sudo apt install python3-colcon-common-extensions
+sudo apt-get install -y python3-colcon-common-extensions
 ```
 
 ## Additional packages
-### joystick related packages
+Joystick related packages
 ```
-sudo apt install joystick jstest-gtk evtest
+sudo apt-get install -y joystick jstest-gtk evtest
 sudo usermod -aG input $USER
 ```
 
 ## Creating workspace
 ```
-mkdir willi_ws
-cd willi_ws
+mkdir Robots
+cd Robots
+git clone git@github.com:dkoslowski/willi.git
+cd willi
 colcon build --symlink-install
-git clone git@github.com:dkoslowski/willi.git src
 ```
 
 ## Adafruit Motor HAT
 
-### Install additional packages
+Install additional packages
 ```
-sudo apt-get install -y python3-smbus i2c-tools rpi.gpio
+sudo apt-get install -y python3-smbus i2c-tools python3-rpi.gpio
 sudo i2cdetect -y 1
 
 ```
-### MotorKit library
+Install Adafruit MotorKit library
 ```
 sudo apt install pip3
-cd willy-ws
 python3 -m venv .venv
 source .venv/bin/activate
 pip3 install adafruit-circuitpython-motorkit
