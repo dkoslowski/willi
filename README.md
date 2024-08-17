@@ -37,13 +37,12 @@ git clone git@github.com:dkoslowski/willi.git src
 
 ### Install additional packages
 ```
-sudo apt-get install -y python3-smbus i2c-tools
+sudo apt-get install -y python3-smbus i2c-tools rpi.gpio
 sudo i2cdetect -y 1
 
 ```
 ### MotorKit library
 ```
-sudo apt install rpi.gpio
 sudo apt install pip3
 cd willy-ws
 python3 -m venv .venv
