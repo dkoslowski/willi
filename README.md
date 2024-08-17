@@ -38,7 +38,7 @@ colcon build --symlink-install
 
 Install additional packages
 ```
-sudo apt-get install -y python3-smbus i2c-tools python3-rpi.gpio
+sudo apt-get install -y python3-smbus i2c-tools
 sudo i2cdetect -y 1
 
 ```
@@ -47,7 +47,7 @@ Install Adafruit MotorKit library
 sudo apt install pip3
 python3 -m venv .venv
 source .venv/bin/activate
-pip3 install adafruit-circuitpython-motorkit
+pip3 install rpi.gpio adafruit-circuitpython-motorkit
 ```
 
 ## Ubuntu tweaks
