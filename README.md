@@ -43,11 +43,11 @@ sudo i2cdetect -y 1
 ```
 ### MotorKit library
 ```
+sudo apt install rpi.gpio
 sudo apt install pip3
 cd willy-ws
 python3 -m venv .venv
 source .venv/bin/activate
-pip3 install RPi.GPIO
 pip3 install adafruit-circuitpython-motorkit
 ```
 
