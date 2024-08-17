@@ -2,12 +2,11 @@
 
 # Below imports all necessary packages to make this Python Script run
 import time
-import board
 from adafruit_motorkit import MotorKit
 
 # Below initialises the variable kit to be our I2C Connected Adafruit Motor HAT. If stacking Multiple
 # Adafruit HATs we can then explain in code exactly which I2C address we want focused on here.
-kit = MotorKit(i2c = board.I2C())
+kit = MotorKit(pwm_frequency = 50.0)
 
 # Below will provide the DC Motor maximum current available. This allows it to rotate at top speed clockwise
 kit.motor2.throttle = 1.0
