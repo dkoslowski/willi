@@ -22,9 +22,8 @@ class Willi():
 
     def __init__(self):
         self._kit = MotorKit(pwm_frequency = 50.0)
-        # d=67mm @ 175 RPM (max throttle)
-        self._wheelL = wheel.Wheel(motor = self._kit.motor2, d_mm = 67, max_rpm = 189, min_throttle = 0.2)
-        self._wheelR = wheel.Wheel(motor = self._kit.motor4, d_mm = 67, max_rpm = 191, min_throttle = 0.2)
+        self._wheelL = wheel.Wheel(motor = self._kit.motor2, d_mm = 65, max_rpm = 185.6, min_throttle = 0.2)
+        self._wheelR = wheel.Wheel(motor = self._kit.motor4, d_mm = 65, max_rpm = 183.1, min_throttle = 0.2)
         self.speed = 0.0
         self.spin  = 0.0
 

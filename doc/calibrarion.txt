@@ -1,0 +1,18 @@
+Motor calibration results
+
+Power source:   5xAA batteries
+Voltage idle:   6.6 V
+Throttle:       1.0
+PWM:            50.0 Hz
+
+Wheel diameter: 65 mm
+Wheel width:    27 mm  
+
+Motor speed, RPM
+--------------------------
+     |  LEFT   |  RIGHT
+--------------------------
+ min |  183.8  |  179.9
+ max |  187.3  |  183.9
+ avg |  185.6  |  183.1
+--------------------------
