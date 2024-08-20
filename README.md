@@ -70,6 +70,16 @@ source .venv/bin/activate
 pip3 install rpi.gpio adafruit-circuitpython-motorkit
 ```
 
+## Controlling the robot
+### by command publishing
+```
+ros2 topic pub '/command' 'std_msgs/String' '{data: forward}'
+ros2 topic pub '/command' 'std_msgs/String' '{data: backward}'
+ros2 topic pub '/command' 'std_msgs/String' '{data: left}'
+ros2 topic pub '/command' 'std_msgs/String' '{data: right}'
+ros2 topic pub '/command' 'std_msgs/String' '{data: stop}'
+```
+
 ## Ubuntu tweaks
 
 ### (Obsolete) Disable services causing startup delay on RasPi

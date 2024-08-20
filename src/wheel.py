@@ -34,6 +34,10 @@ class Wheel:
         #     speed = -self._max_speed
         self.set_throttle(speed/self._max_speed)
 
+    # get the maximal speed of this wheel
+    def max_speed(self):
+        return self._max_speed
+
     # stop the wheel
     def stop(self):
         self._motor.throttle = None
