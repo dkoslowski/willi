@@ -13,7 +13,7 @@ def calibrate_throttle():
         try:
             throttle = float(s)
             print('Set throttle to ', throttle)
-            willi._set_throttle(throttle, throttle)
+            willi.set_throttle(throttle, throttle)
         except ValueError:
             print('Not a float: ', s)
 
@@ -23,7 +23,7 @@ def calibrate_speed():
         try:
             speed = float(s)
             print('Set speed to ', speed)
-            willi._set_throttle(speed, speed)
+            willi.set_speed(speed, speed)
         except ValueError:
             print('Not a float: ', s)
 

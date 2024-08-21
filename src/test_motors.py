@@ -1,6 +1,7 @@
 #! /usr/bin/env python3
 
 import time
+from numpy import interp
 import willi
 
 # maximal speed 0,617427676 m/s
@@ -15,16 +16,17 @@ try:
     for i in range(-10, 11):
         throttle = i / 10
         print("throttle:", throttle)
-        willi._set_throttle(throttle, throttle)
+        willi.set_throttle(throttle, throttle)
         time.sleep(2)
     willi.stop()
 
     time.sleep(2)
 
+    max_speed = willi.max_speed()
     for i in range(-10, 11):
-        speed = i / 10
+        speed = interp(i, [-10, 10], [-max_speed, max_speed])
         print("speed m/s:", speed)
-        willi._set_speed(speed, speed)
+        willi.set_speed(speed, speed)
         time.sleep(2)
     willi.stop()
 
