@@ -38,7 +38,7 @@ class Willi():
         # print(f'min_speed: {self._min_speed}, max_speed: {self._max_speed}')
 
         self.speed = 0.0
-        self.spin  = 0.0
+        self.turn  = 0.0
     
     def min_speed(self):
         return self._min_speed
@@ -77,7 +77,7 @@ class Willi():
 
     # def _cmd_vel_callback(self, msg):
     #     self.speed = msg.linear.x
-    #     self.spin = msg.angular.z
+    #     self.turn = msg.angular.z
     #     self._set_motor_speeds()
 
     def _set_motor_speeds(self):
@@ -86,7 +86,7 @@ class Willi():
         linear_speed = max(-self._max_speed, min(self._max_speed, self.speed))
 
         # angular speed, m/s
-        angular_speed = max(-self._max_speed, min(self._max_speed, self.spin * self._wheel_base / 2))
+        angular_speed = max(-self._max_speed, min(self._max_speed, self.turn * self._wheel_base / 2))
 
         # if the composite speed exceeds the motor speed, clip the linear speed
         speedL = linear_speed - angular_speed
@@ -116,33 +116,33 @@ class Willi():
 
     def forward(self, speed=0.5):
         self.speed = abs(speed)
-        self.spin  = 0.0
+        self.turn  = 0.0
         self._set_motor_speeds()
 
     def backward(self, speed=0.5):
         self.speed = -abs(speed)
-        self.spin  =  0.0
+        self.turn  =  0.0
         self._set_motor_speeds()
         
-    def left(self, spin=1.0):
+    def left(self, turn=1.0):
         self.speed =  0.0
-        self.spin  =  abs(spin)
+        self.turn  =  abs(turn)
         self._set_motor_speeds()
         
-    def right(self, spin=1.0):
+    def right(self, turn=1.0):
         self.speed =  0.0
-        self.spin  = -abs(spin)
+        self.turn  = -abs(turn)
         self._set_motor_speeds()
         
     def stop(self):
         self._wheelL.stop()
         self._wheelR.stop()
         self.speed =  0.0
-        self.spin  =  0.0
+        self.turn  =  0.0
 
-    def set_velocity(self, speed, spin):
+    def set_velocity(self, speed, turn):
         self.speed = speed
-        self.spin = spin
+        self.turn = turn
         self._set_motor_speeds()
 
     def __del__(self):

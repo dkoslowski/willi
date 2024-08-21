@@ -47,9 +47,9 @@ class WilliSubscriber(Node):
 
     def _cmd_vel_callback(self, msg):
         speed = msg.linear.x
-        spin = msg.angular.z
-        self.get_logger().info(f'Speed: {speed}, spin: {spin}')
-        self._willi.set_velocity(speed, spin)
+        turn = msg.angular.z
+        self.get_logger().info(f'Speed: {speed}, turn: {turn}')
+        self._willi.set_velocity(speed, turn)
 
 def main(args=None):
     rclpy.init(args=args)
