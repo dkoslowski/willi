@@ -57,16 +57,26 @@ ros2 topic pub '/command' 'std_msgs/String' '{data: backward}'
 ros2 topic pub '/command' 'std_msgs/String' '{data: left}'
 ros2 topic pub '/command' 'std_msgs/String' '{data: right}'
 ros2 topic pub '/command' 'std_msgs/String' '{data: stop}'
+
+ros2 topic echo /command
 ```
 ### by keyboard
 ```
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
+ros2 topic echo /cmd_vel
 ```
 
 ### by rqt plugin
 ```
 sudo apt install ros-jazzy-rqt-robot-steering
 ros2 run rqt_robot_steering rqt_robot_steering
+ros2 topic echo /cmd_vel
+```
+
+### by joystik
+```
+ros2 run joy joy_node
+ros2 topic echo /joy
 ```
 
 ## Links

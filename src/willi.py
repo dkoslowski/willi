@@ -114,36 +114,36 @@ class Willi():
         self._wheelL.set_throttle(throttleL)
         self._wheelR.set_throttle(throttleR)
 
-    def forward(self, speed=0.5):
-        self.speed = abs(speed)
-        self.turn  = 0.0
+    def set_velocity(self, speed=0.0, turn=0.0):
+        self.speed = speed
+        self.turn = turn
         self._set_motor_speeds()
 
-    def backward(self, speed=0.5):
-        self.speed = -abs(speed)
-        self.turn  =  0.0
-        self._set_motor_speeds()
+    # def forward(self, speed=0.5):
+    #     self.speed = abs(speed)
+    #     self.turn  = 0.0
+    #     self._set_motor_speeds()
+
+    # def backward(self, speed=0.5):
+    #     self.speed = -abs(speed)
+    #     self.turn  =  0.0
+    #     self._set_motor_speeds()
         
-    def left(self, turn=1.0):
-        self.speed =  0.0
-        self.turn  =  abs(turn)
-        self._set_motor_speeds()
+    # def left(self, turn=1.0):
+    #     self.speed =  0.0
+    #     self.turn  =  abs(turn)
+    #     self._set_motor_speeds()
         
-    def right(self, turn=1.0):
-        self.speed =  0.0
-        self.turn  = -abs(turn)
-        self._set_motor_speeds()
+    # def right(self, turn=1.0):
+    #     self.speed =  0.0
+    #     self.turn  = -abs(turn)
+    #     self._set_motor_speeds()
         
     def stop(self):
         self._wheelL.stop()
         self._wheelR.stop()
         self.speed =  0.0
         self.turn  =  0.0
-
-    def set_velocity(self, speed, turn):
-        self.speed = speed
-        self.turn = turn
-        self._set_motor_speeds()
 
     def __del__(self):
         self.stop()
