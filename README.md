@@ -63,6 +63,12 @@ ros2 topic pub '/command' 'std_msgs/String' '{data: stop}'
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
+### by rqt plugin
+```
+sudo apt install ros-jazzy-rqt-robot-steering
+ros2 run rqt_robot_steering rqt_robot_steering
+```
+
 ## Links
 - ["Building your own Open Source robot" by Ubuntu Robotics](https://youtube.com/playlist?list=PL_2PosskAdC25idJVMLOhu-4VAn8OYkQ1)
 - [Adafruit DC and Stepper Motor HAT for Raspberry Pi](https://learn.adafruit.com/adafruit-dc-and-stepper-motor-hat-for-raspberry-pi)
