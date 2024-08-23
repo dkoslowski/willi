@@ -69,10 +69,10 @@ class WilliSubscriber(Node):
             self.get_logger().info(f'Stop by joystick')
             self._willi.stop()
         else:
-            turn  = msg.axes[0]
-            speed = msg.axes[1]
-            self.get_logger().info(f'Speed by joystick: {speed}, turn: {turn}')
-            self._willi.set_velocity(speed, turn)
+            turn_factor  = msg.axes[0]
+            speed_factor = msg.axes[1]
+            self.get_logger().info(f'Speed factor: {speed_factor}, turn factor: {turn_factor}')
+            self._willi.set_norm_velocity(speed_factor, turn_factor)
 
     def _range_callback(self, msg):
         pass

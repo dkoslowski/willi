@@ -20,38 +20,45 @@ class Wheel:
 
     # set wheel throttle (-1.0..1.0)    
     def set_throttle(self, throttle):
-        # sanitize the parameter
-        if throttle > 0:
-            if throttle < self._min_throttle:
-                throttle = self._min_throttle
-            elif throttle > self._max_throttle:
-                throttle = self._max_throttle
-        elif throttle < 0:
-            if throttle > -self._min_throttle:
-                throttle = -self._min_throttle
-            elif throttle < -self._max_throttle:
-                throttle = -self._max_throttle
+        if throttle > 1:
+            throttle = 1
+        elif throttle < -1:
+            throttle = -1
 
+        # sanitize the parameter
+        # if throttle > 0:
+            # if throttle < self._min_throttle:
+            #     throttle = self._min_throttle
+            # elif throttle > self._max_throttle:
+            #     throttle = self._max_throttle
+        # elif throttle < 0:
+            # if throttle > -self._min_throttle:
+            #     throttle = -self._min_throttle
+            # elif throttle < -self._max_throttle:
+            #     throttle = -self._max_throttle
+
+        print(f'Set throttle to {throttle}')
         self._motor.throttle = throttle
         
     # set wheel speed (m/s)    
     def set_speed(self, speed):
-        # sanitize the parameter
-        throttle = 0
-        if speed > 0:
-            if speed < self._min_speed:
-                speed = self._min_speed
-            elif speed > self._max_speed:
-                speed = self._max_speed
-            throttle = interp(speed, [self._min_speed, self._max_speed], [self._min_throttle, self._max_throttle])
-        elif speed < 0:
-            if speed > -self._min_speed:
-                speed = -self._min_speed
-            elif speed < -self._max_speed:
-                speed = -self._max_speed
-            throttle = interp(speed, [-self._max_speed, -self._min_speed], [-self._max_throttle, -self._min_throttle])
+        # # sanitize the parameter
+        # throttle = 0
+        # if speed > 0:
+        #     if speed < self._min_speed:
+        #         speed = self._min_speed
+        #     elif speed > self._max_speed:
+        #         speed = self._max_speed
+        #     throttle = interp(speed, [self._min_speed, self._max_speed], [self._min_throttle, self._max_throttle])
+        # elif speed < 0:
+        #     if speed > -self._min_speed:
+        #         speed = -self._min_speed
+        #     elif speed < -self._max_speed:
+        #         speed = -self._max_speed
+        #     throttle = interp(speed, [-self._max_speed, -self._min_speed], [-self._max_throttle, -self._min_throttle])
 
-        self.set_throttle(throttle)
+        # self.set_throttle(throttle)
+        self.set_throttle(speed/self._max_speed)
 
     # get the maximal speed of this wheel
     def max_speed(self):
