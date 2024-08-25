@@ -28,7 +28,7 @@ source .venv/bin/activate
 ```
 Install Adafruit MotorKit library inside venv
 ```
-pip3 install rpi.gpio adafruit-circuitpython-motorkit
+pip3 install adafruit-circuitpython-motorkit
 ```
 
 ## I/O support
@@ -81,9 +81,11 @@ ros2 topic echo /joy
 
 ## Links
 - ["Building your own Open Source robot" by Ubuntu Robotics](https://youtube.com/playlist?list=PL_2PosskAdC25idJVMLOhu-4VAn8OYkQ1)
+- [Distance measurement with ultrasonic sensor HC-SR04 (Python)](https://wiki.ros.org/Drivers/Tutorials/DistanceMeasurementWithUltrasonicSensorHC-SR04Python)
 - [Adafruit DC and Stepper Motor HAT for Raspberry Pi](https://learn.adafruit.com/adafruit-dc-and-stepper-motor-hat-for-raspberry-pi)
 - [CircuitPython helper library provides higher level objects to control motors and servos.](https://pypi.org/project/adafruit-circuitpython-motor/)
 - [How to use Raspberry Pi GPIO pins with Ubuntu](https://ubuntu.com/tutorials/gpio-on-raspberry-pi)
+- [lgpio Python (local)](https://abyz.me.uk/lg/py_lgpio.html)
 
 ---
 

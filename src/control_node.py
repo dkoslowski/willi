@@ -9,11 +9,11 @@ from sensor_msgs.msg import Joy, Range
 
 import willi
 
-class WilliSubscriber(Node):
+class ControlNode(Node):
 
     def __init__(self):
 
-        super().__init__('willi_subscriber')
+        super().__init__('control_node')
 
         self._command_subscription = self.create_subscription(
             String,
@@ -43,7 +43,7 @@ class WilliSubscriber(Node):
 
     def _command_callback(self, msg):
         command = msg.data
-        self.get_logger().info('Command received: "%s"' % command)
+        # self.get_logger().info('Command received: "%s"' % command)
         if command == 'forward':
             self._willi.set_velocity(speed=0.5)
         elif command == 'backward':
@@ -61,31 +61,37 @@ class WilliSubscriber(Node):
     def _cmd_vel_callback(self, msg):
         speed = msg.linear.x
         turn = msg.angular.z
-        self.get_logger().info(f'Speed by keyboard: {speed}, turn: {turn}')
+        # self.get_logger().info(f'Speed by keyboard: {speed}, turn: {turn}')
         self._willi.set_velocity(speed, turn)
 
     def _joy_callback(self, msg):
         if msg.buttons[5] == 1:
-            self.get_logger().info(f'Stop by joystick')
+            # self.get_logger().info(f'Stop by joystick')
             self._willi.stop()
         else:
             turn_factor  = msg.axes[0]
             speed_factor = msg.axes[1]
-            self.get_logger().info(f'Speed factor: {speed_factor}, turn factor: {turn_factor}')
+            # self.get_logger().info(f'Speed factor: {speed_factor}, turn factor: {turn_factor}')
             self._willi.set_norm_velocity(speed_factor, turn_factor)
 
     def _range_callback(self, msg):
-        pass
+        distance = msg.range
+        # self.get_logger().info(f'Distance: {distance}')
+        self._willi.set_distance(distance)
 
 def main(args=None):
-    rclpy.init(args=args)
 
-    subscriber = WilliSubscriber()
+    try:
+        print("Press ctrl+c to interrupt")
+        rclpy.init(args=args)
+        node = ControlNode()
+        print('Spinning.')
+        rclpy.spin(node)
 
-    print('Spinning.')
-    rclpy.spin(subscriber)
+    except KeyboardInterrupt:
+        print('\nBye!')
 
-    rclpy.shutdown()
+    # rclpy.shutdown()
 
 if __name__ == '__main__':
     main()

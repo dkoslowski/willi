@@ -27,14 +27,16 @@ class Willi():
                                    min_rpm =  84.6,
                                    max_rpm = 183.1)
 
-        self._min_speed = max(self._wheelL.min_speed(), self._wheelR.min_speed())
-        self._max_speed = min(self._wheelL.max_speed(), self._wheelR.max_speed())
-        self._max_turn = self._max_speed/self._wheel_diameter * 2.0
-        # min_speed: 0.2879269667015045, max_speed: 0.6231610827783154, max_turn: 19.174187162409705
+        self._min_speed = max(self._wheelL.min_speed(), self._wheelR.min_speed())   # 0.2879269667015045 m/s
+        self._max_speed = min(self._wheelL.max_speed(), self._wheelR.max_speed())   # 0.6231610827783154 m/s
+        self._max_turn = 2.0 * self._max_speed / self._wheel_diameter               # 19.174187162409705 rad/s (too big???)
         # print(f'min_speed: {self._min_speed}, max_speed: {self._max_speed}, max_turn = {self._max_turn}')
 
         self.speed = 0.0
         self.turn  = 0.0
+        self.close = 0.30  # start slowing down when this close
+        self.tooclose = 0.10   # no forward motion when this close
+        self.distance = 100.0
     
     def min_speed(self):
         return self._min_speed
@@ -48,6 +50,15 @@ class Willi():
         ang_speed = self.turn * self._wheel_base
         if lin_speed < 0:
             ang_speed = -ang_speed
+
+        # Distance check
+        if lin_speed > 0.0:
+            governor = 1.0
+            if self.distance < self.tooclose:
+                governor = 0.0
+            elif self.distance < self.close:
+                governor = (self.distance - self.tooclose) / (self.close - self.tooclose)
+            lin_speed *= governor
 
         speedL = lin_speed - ang_speed
         speedR = lin_speed + ang_speed
@@ -102,7 +113,11 @@ class Willi():
 
     def set_norm_velocity(self, speed_factor=0.0, turn_factor=0.0):
         self.speed = self._max_speed * speed_factor
-        self.turn  = self._max_turn * turn_factor * 0.2
+        self.turn  = self._max_turn * turn_factor * 0.2 # adjustment for smooth turning steering
+        self._set_motor_speeds()
+
+    def set_distance(self, distance):
+        self.distance = distance
         self._set_motor_speeds()
 
     def stop(self):

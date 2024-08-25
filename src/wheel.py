@@ -37,7 +37,7 @@ class Wheel:
             # elif throttle < -self._max_throttle:
             #     throttle = -self._max_throttle
 
-        print(f'Set throttle to {throttle}')
+        # print(f'Set throttle to {throttle}')
         self._motor.throttle = throttle
         
     # set wheel speed (m/s)    
