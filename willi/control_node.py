@@ -7,7 +7,7 @@ from std_msgs.msg import String
 from geometry_msgs.msg import Twist
 from sensor_msgs.msg import Joy, Range
 
-import willi
+import willi.robot.Willi as Willi
 
 class ControlNode(Node):
 
@@ -39,7 +39,7 @@ class ControlNode(Node):
             self._range_callback,
             5)
 
-        self._willi = willi.Willi()
+        self._willi = Willi()
 
     def _command_callback(self, msg):
         command = msg.data

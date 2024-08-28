@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 import time
-import wheel
+import willi.wheel
 from adafruit_motorkit import MotorKit
 
 class Willi():
