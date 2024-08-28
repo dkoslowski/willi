@@ -30,6 +30,11 @@ Install Adafruit MotorKit library inside venv
 ```
 pip3 install adafruit-circuitpython-motorkit
 ```
+Install additional python modules
+```
+pip3 install setuptools pyyaml
+```
+
 
 ## I/O support
 ### System tweaks
