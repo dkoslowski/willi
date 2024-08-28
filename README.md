@@ -11,7 +11,7 @@ Add to `~/.bashrc`:
 # ROS 2
 # Replace ".bash" with your shell if you're not using bash
 # Possible values are: setup.bash, setup.sh, setup.zsh
-source /opt/ros/humble/setup.bash
+source /opt/ros/jazzy/setup.bash
 export ROS_DOMAIN_ID=68
 ```
 ## colcon extentions
@@ -19,22 +19,17 @@ export ROS_DOMAIN_ID=68
 sudo apt-get install -y python3-colcon-common-extensions
 ```
 
-## Adafruit libraries
-Install pip and creatre python venv
+## Additional libraries
+### lgpio
 ```
-sudo apt install pip3
-python3 -m venv --system-site-packages .venv
-source .venv/bin/activate
-```
-Install Adafruit MotorKit library inside venv
-```
-pip3 install adafruit-circuitpython-motorkit
-```
-Install additional python modules
-```
-pip3 install setuptools pyyaml
+sudo apt-get install -y python3-lgpio
 ```
 
+### Adafruit MotorKit (robot only, not needed on dev host)
+```
+sudo apt install python3-pip
+sudo pip3 install --break-system-packages adafruit-circuitpython-motorkit
+```
 
 ## I/O support
 ### System tweaks
