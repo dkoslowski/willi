@@ -7,7 +7,7 @@ from std_msgs.msg import String
 from geometry_msgs.msg import Twist
 from sensor_msgs.msg import Joy, Range
 
-from range_sensor import RangeSensor
+from willi.range_sensor import RangeSensor
 
 class SensorNode(Node):
 
