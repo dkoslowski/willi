@@ -20,9 +20,9 @@ sudo apt-get install -y python3-colcon-common-extensions
 ```
 
 ## Additional libraries
-### lgpio
+### RPi.gpio & lgpio
 ```
-sudo apt-get install -y python3-lgpio
+sudo apt-get install -y python3-rpi.gpio python3-lgpio
 ```
 
 ### Adafruit MotorKit (robot only, not needed on dev host)
