@@ -4,8 +4,8 @@ A simply 2-wheel robot.
 ## Features
 - Distributed controlling system (robot/host) connected via WiFi 
 - Runs on ROS2 Jazzy and Ubuntu 24 LTS
-- Steering by console, graphical tolls or gamepad
-- Collision avoidance (only forward direction) 
+- Steering by console, graphical tool or gamepad
+- Collision avoidance (forward direction only) 
 
 ## Configuration
 
