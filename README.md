@@ -1,5 +1,5 @@
 # willi
-A simply 2-wheel robot.
+A simply 2-wheel robot. Based on ["Building your own Open Source robot"(https://youtube.com/playlist?list=PL_2PosskAdC25idJVMLOhu-4VAn8OYkQ1) YouTube presentation by Sid Faber from Ubuntu Robotics.
 
 ## Features
 - Distributed controlling system (robot/host) connected via WiFi 
@@ -119,7 +119,7 @@ ros2 topic echo /joy
 ```
 
 ## Links
-- ["Building your own Open Source robot" by Ubuntu Robotics](https://youtube.com/playlist?list=PL_2PosskAdC25idJVMLOhu-4VAn8OYkQ1)
+- ["Building your own Open Source robot"](https://youtube.com/playlist?list=PL_2PosskAdC25idJVMLOhu-4VAn8OYkQ1) by Sid Faber
 - [Distance measurement with ultrasonic sensor HC-SR04 (Python)](https://wiki.ros.org/Drivers/Tutorials/DistanceMeasurementWithUltrasonicSensorHC-SR04Python)
 - [Adafruit DC and Stepper Motor HAT for Raspberry Pi](https://learn.adafruit.com/adafruit-dc-and-stepper-motor-hat-for-raspberry-pi)
 - [CircuitPython helper library provides higher level objects to control motors and servos.](https://pypi.org/project/adafruit-circuitpython-motor/)
