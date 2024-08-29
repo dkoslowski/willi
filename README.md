@@ -74,7 +74,7 @@ cd $WS/src
 git clone git@github.com:dkoslowski/willi.git
 ```
 # Build
-## Build ROS packages
+## Build custom ROS packages
 ```
 cd $WS
 colcon build --symlink-install
