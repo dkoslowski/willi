@@ -1,5 +1,5 @@
 # willi
-A simply 2-wheel robot. Based on ["Building your own Open Source robot"(https://youtube.com/playlist?list=PL_2PosskAdC25idJVMLOhu-4VAn8OYkQ1) YouTube presentation by Sid Faber from Ubuntu Robotics.
+A simply 2-wheel robot. Based on ["Building your own Open Source robot"](https://youtube.com/playlist?list=PL_2PosskAdC25idJVMLOhu-4VAn8OYkQ1) YouTube presentation by Sid Faber from Ubuntu Robotics.
 
 ## Features
 - Distributed controlling system (robot/host) connected via WiFi 
