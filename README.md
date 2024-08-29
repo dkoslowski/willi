@@ -19,19 +19,21 @@ export ROS_DOMAIN_ID=68
 sudo apt-get install -y python3-colcon-common-extensions
 ```
 
-## I/O support (robot only, no need on dev host)
-### RPi.gpio & lgpio libraries
+## I/O support
+NB: appliable either on the robot or on the controlling host
+
+### RPi.gpio & lgpio libraries (robot)
 ```
 sudo apt-get install -y python3-rpi.gpio python3-lgpio
 ```
 
-### Adafruit MotorKit 
+### Adafruit MotorKit (robot) 
 ```
 sudo apt install python3-pip
 sudo pip3 install --break-system-packages adafruit-circuitpython-motorkit
 ```
 
-### System tweaks
+### System tweaks (controlling host)
 Add user to the "input" group to allow joystick operations
 ```
 sudo usermod -aG input $USER
