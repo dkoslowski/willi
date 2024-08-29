@@ -21,8 +21,8 @@ setup(
     entry_points={
         'console_scripts': [
             # 'control_node = willi.my_node:main'
-            'control_node = willi.control_node:main'
-            'sensor_node = willi.sensor_node:main'
+            'control_node = willi.control_node:main',
+            'sensor_node = willi.sensor_node:main',
         ],
     },
 )
