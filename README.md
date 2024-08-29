@@ -1,12 +1,18 @@
 # willi
-A 2-wheel robot with ROS2 Jazzy and Ubuntu 24 LTS.
+A simply 2-wheel robot.
+
+## Features
+- Distributed controlling system (robot/host) connected via WiFi 
+- Runs on ROS2 Jazzy and Ubuntu 24 LTS
+- Steering by console, graphical tolls or gamepad
+- Collision avoidance (only forward direction) 
 
 ## Configuration
 
 ### Controlling host
 - Plain PC/Laptop runnung Ubuntu Desktop and ROS2 installed
-- Xbox joystick
-The joystick can be attached to the robot too. In ths case the ROS "joy_node" must run on the robot.
+- Xbox gamepad
+The (wireless) gamepad can be attached to the robot too. In ths case the corresponding ROS "joy_node" must run on the robot.
 
 ### Robot
 - Raspberry Pi 3B running Ububti Server and ROS2
