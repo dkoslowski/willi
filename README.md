@@ -22,6 +22,7 @@ The (wireless) gamepad can be attached to the robot too. In ths case the corresp
 - 2x6V DC brushed motors (with wheels ;)
 - 5xAA batteries for powering the motors
 
+# Bootstrapping
 ## ROS2 Installation
 ### ROS2
 [Ubuntu (Debian packages)](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
@@ -68,13 +69,14 @@ mkdir -p $WS/src
 cd $WS/src
 git clone git@github.com:dkoslowski/willi.git
 ```
-
-### Build ROS packages
+# Build
+## Build ROS packages
 ```
 cd $WS
 colcon build --symlink-install
 ```
 
+# Run
 ## Run ROS nodes on the robot
 TBD
 
