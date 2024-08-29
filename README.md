@@ -41,7 +41,8 @@ sudo usermod -aG input $USER
 All custom ROS stuff will live in the $WS directory
 ```
 WS=<some_directory>
-mkdir $WS/src
+mkdir -p $WS/src
+cd $WS/src
 git clone git@github.com:dkoslowski/willi.git
 ```
 
