@@ -1,6 +1,21 @@
 # willi
 A 2-wheel robot with ROS2 Jazzy and Ubuntu 24 LTS.
 
+## Configuration
+
+### Controlling host
+- Plain PC/Laptop runnung Ubuntu Desktop and ROS2 installed
+- Xbox joystick
+The joystick can be attached to the robot too. In ths case the ROS "joy_node" must run on the robot.
+
+### Robot
+- Raspberry Pi 3B running Ububti Server and ROS2
+- Adafruit Motor HAT
+- LiPo HAT for powering the RPi
+- HC-SR04 ultrasonic distance sensor 
+- 2x6V DC brushed motors (with wheels ;)
+- 5xAA batteries for powering the motors
+
 ## ROS2 Installation
 ### ROS2
 [Ubuntu (Debian packages)](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html)
