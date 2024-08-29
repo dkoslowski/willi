@@ -62,7 +62,7 @@ sudo usermod -aG input $USER
 ```
 ## Custom software
 ### Create workspace
-All custom ROS stuff will live in the $WS directory
+All custom ROS stuff will live in the `$WS` directory
 ```
 WS=<some_directory>
 mkdir -p $WS/src
