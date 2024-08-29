@@ -19,35 +19,40 @@ export ROS_DOMAIN_ID=68
 sudo apt-get install -y python3-colcon-common-extensions
 ```
 
-## Additional libraries
-### RPi.gpio & lgpio
+## I/O support (robot only, no need on dev host)
+### RPi.gpio & lgpio libraries
 ```
 sudo apt-get install -y python3-rpi.gpio python3-lgpio
 ```
 
-### Adafruit MotorKit (robot only, not needed on dev host)
+### Adafruit MotorKit 
 ```
 sudo apt install python3-pip
 sudo pip3 install --break-system-packages adafruit-circuitpython-motorkit
 ```
 
-## I/O support
 ### System tweaks
 Add user to the "input" group to allow joystick operations
 ```
 sudo usermod -aG input $USER
 ```
-### Additional packages
-Joystick related packages
+## Custom software
+### Create workspace
+All custom ROS stuff will live in the $WS directory
 ```
-sudo apt-get install -y joystick jstest-gtk evtest
+WS=<some_directory>
+mkdir $WS/src
+git clone git@github.com:dkoslowski/willi.git
 ```
-I2C related packages
-```
-sudo apt-get install -y python3-smbus i2c-tools
-sudo i2cdetect -y 1
 
+### Build ROS packages
 ```
+cd $WS
+colcon build --symlink-install
+```
+
+## Run ROS nodes on the robot
+TBD
 
 ## Controlling the robot
 ### by direct command publishing
@@ -98,6 +103,17 @@ cd Robots
 git clone git@github.com:dkoslowski/willi.git
 cd willi
 colcon build --symlink-install
+```
+## Additional packages
+Joystick related packages
+```
+sudo apt-get install -y joystick jstest-gtk evtest
+```
+I2C related packages
+```
+sudo apt-get install -y python3-smbus i2c-tools
+sudo i2cdetect -y 1
+
 ```
 
 ### Ubuntu tweaks
