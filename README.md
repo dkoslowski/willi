@@ -79,6 +79,10 @@ git clone git@github.com:dkoslowski/willi.git
 cd $WS
 colcon build --symlink-install
 ```
+## Activate custom ROS overlay
+```
+source $WS/install/setup.bash
+```
 
 # Run
 ## Run ROS nodes on the robot
