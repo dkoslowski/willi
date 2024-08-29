@@ -5,7 +5,11 @@ A simply 2-wheel robot.
 - Distributed controlling system (robot/host) connected via WiFi 
 - Runs on ROS2 Jazzy and Ubuntu 24 LTS
 - Steering by console, graphical tool or gamepad
-- Collision avoidance (forward direction only) 
+- Collision avoidance (forward direction only)
+
+The controlling host is optional. You can run all controlling nodes on the robot with attached (wireless) gamepad. In this case you'll still need a PC to ssh to the robot and configure the X11 if you want to see the graphic output.
+
+Collision avoidanse is optional too. In this case you don't need to run the appropriate sensor node. Actually, if there is no sensor, this node won't run at all ;)
 
 ## Configuration
 
