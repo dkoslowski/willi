@@ -1,6 +1,7 @@
 import time
-import willi.wheel
 from adafruit_motorkit import MotorKit
+
+from willi.wheel import Wheel
 
 #
 # Robot himself
@@ -13,14 +14,14 @@ class Willi():
         self._wheel_diameter = 0.065
 
         self._kit = MotorKit(pwm_frequency = 50.0)
-        self._wheelL = willi.wheel.Wheel(
+        self._wheelL = Wheel(
             motor = self._kit.motor2,
             min_throttle = 0.3,
             max_throttle = 1.0,
             wheel_diameter = self._wheel_diameter,
             min_rpm =  81.9,
             max_rpm = 185.6)
-        self._wheelR = willi.wheel.Wheel(
+        self._wheelR = Wheel(
             motor = self._kit.motor4,
             min_throttle = 0.3,
             max_throttle = 1.0,

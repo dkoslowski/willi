@@ -7,7 +7,7 @@ from std_msgs.msg import String
 from geometry_msgs.msg import Twist
 from sensor_msgs.msg import Joy, Range
 
-import willi.sensor
+from willi.sensor import Sensor
 
 #
 # Range sensor handler. 
@@ -25,7 +25,7 @@ class SensorNode(Node):
         super().__init__(name)
 
         self._frequency = frequency
-        self._distance_sensor = willi.sensor.Sensor()
+        self._distance_sensor = Sensor()
         self._distance_publisher = self.create_publisher(Range, "range", 5)
 
         self._range_msg = Range()

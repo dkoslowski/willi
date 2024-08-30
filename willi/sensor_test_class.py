@@ -7,10 +7,10 @@
 #
 
 import time
-import willi.sensor
+from willi.sensor import Sensor
 
 print("Testing willi's distance sensor")
-sensor = willi.sensor.Sensor()
+sensor = Sensor()
 
 # Measure the distance every second
 try:

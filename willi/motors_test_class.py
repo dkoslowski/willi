@@ -8,12 +8,12 @@
 
 import time
 from numpy import interp
-import willi.robot
+from willi.robot import Willi
 
 # maximal speed 0,617427676 m/s
 
 print("Testing willi's motors")
-willi = willi.robot.Willi()
+willi = Willi()
 
 try:
     print("Press ctrl+c to interrupt")

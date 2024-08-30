@@ -7,7 +7,7 @@
 #
 
 import time
-import willi.robot
+from willi.robot import Willi
 
 def calibrate_throttle():
     while True:
@@ -29,10 +29,11 @@ def calibrate_speed():
         except ValueError:
             print('Not a float: ', s)
 
+willi = Willi()
+print("Calibrating willi's motors")
+
 try:
     print("Press ctrl+c to interrupt")
-    willi = willi.robot.Willi()
-    print("Calibrating willi's motors")
     while True:
         inp = input('Calibrate [t]hrottle or [s]peed? ')
         if inp in ['t', 'T']:
