@@ -1,18 +1,11 @@
-#! /usr/bin/env python3
-
 import lgpio
 import time
 import math
 
-class RangeSensor:
-    '''An HC-SR04 Ultrasonic Range Sensor
-
-    Methods
-    -------
-    get_distance()
-        Return the distance in meters seen by the sensor
-
-    '''
+#
+# HC-SR04 Ultrasonic Range Sensor
+#
+class Sensor:
 
     def __init__ (self, pinTrigger=17, pinEcho=18, speed_of_sound = 343.0):
 
@@ -41,6 +34,9 @@ class RangeSensor:
     def __del__(self):
         lgpio.gpiochip_close(self._handle)
 
+    #
+    # Get distance in meters
+    #
     def get_distance(self):
 
         #  Trigger the measuring with a 10us pulse
@@ -67,22 +63,3 @@ class RangeSensor:
                 break
 
         return ((arrivalTime - startTime) * self.speed_of_sound) / 2
-
-
-def main(args=None):
-
-    # Measure the distance every second to test the module
-    try:
-        print("Press ctrl+c to interrupt")
-        sensor = RangeSensor()
-        while True:
-            print('Distance measured: ', sensor.get_distance())
-            time.sleep(1)
-
-    except Exception as e:
-        print(e)
-    except KeyboardInterrupt:
-        print('\nBye!')
-
-if __name__ == '__main__':
-    main()

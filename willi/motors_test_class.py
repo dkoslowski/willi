@@ -1,14 +1,19 @@
 #! /usr/bin/env python3
 
+#
+# Test motor related class methods
+# Class appropach, no ROS involved
+# willi ROS package must be built and activated previously
+#
+
 import time
 from numpy import interp
-import willi
+import willi.robot
 
 # maximal speed 0,617427676 m/s
 
 print("Testing willi's motors")
-
-willi = willi.Willi()
+willi = willi.robot.Willi()
 
 try:
     print("Press ctrl+c to interrupt")

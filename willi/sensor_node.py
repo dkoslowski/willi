@@ -7,35 +7,25 @@ from std_msgs.msg import String
 from geometry_msgs.msg import Twist
 from sensor_msgs.msg import Joy, Range
 
-from willi.range_sensor import RangeSensor
+import willi.sensor
 
+#
+# Range sensor handler. 
+# topic publisher: /range (distance to the obstacle, m/s)
+#
 class SensorNode(Node):
 
+    #
+    # Parameters
+    # name: node name
+    # frequency: distance measuring frequency
+    #
     def __init__(self, name='sensor_node', frequency=10):
-
-        # super().__init__('sensor_node')
-
-        # self.sensor = RangeSensor()
-        """
-        Parameters
-        ----------
-        name: str
-            The node name that will be used for this robot; defaults
-            to "wheelie"
-        pinTrigger : int
-            The RaspPi GPIO pin that goes high for 10us to trigger the
-            ultrasonic sensor
-        pinEcho : int
-            The RaspPi GPIO pin that goes high for the duration of when
-            the sound is sent until it's received back
-        frequency : int
-            The frequency in Hz for how often measurements are requested
-        """
 
         super().__init__(name)
 
         self._frequency = frequency
-        self._distance_sensor = RangeSensor()
+        self._distance_sensor = willi.sensor.Sensor()
         self._distance_publisher = self.create_publisher(Range, "range", 5)
 
         self._range_msg = Range()
@@ -46,14 +36,23 @@ class SensorNode(Node):
 
         self.start()
 
+    #
+    # Timer callback
+    #
     def _distance_callback (self):
         self.distance = self._distance_sensor.get_distance()
         self._range_msg.range = self.distance
         self._distance_publisher.publish(self._range_msg)
 
+    #
+    # Stop measure
+    #
     def stop (self):
         self.destroy_timer(self._distance_timer)
 
+    #
+    # Start measure
+    #
     def start (self):
         self._distance_timer = self.create_timer (1.0 / self._frequency, self._distance_callback)
 

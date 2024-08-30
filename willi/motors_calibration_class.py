@@ -1,11 +1,13 @@
 #! /usr/bin/env python3
 
+#
+# Motors calibration using class methods
+# Class approach, no ROS involved
+# willi ROS package must be built and activated previously
+#
+
 import time
-import willi
-
-print("Calibrating willi's motors")
-
-willi = willi.Willi()
+import willi.robot
 
 def calibrate_throttle():
     while True:
@@ -29,6 +31,8 @@ def calibrate_speed():
 
 try:
     print("Press ctrl+c to interrupt")
+    willi = willi.robot.Willi()
+    print("Calibrating willi's motors")
     while True:
         inp = input('Calibrate [t]hrottle or [s]peed? ')
         if inp in ['t', 'T']:
@@ -38,7 +42,5 @@ try:
             calibrate_speed()
             break
 
-
 except KeyboardInterrupt:
     print("\nInterrpted")
-

@@ -39,7 +39,13 @@ Add to `~/.bashrc`:
 # Possible values are: setup.bash, setup.sh, setup.zsh
 source /opt/ros/jazzy/setup.bash
 export ROS_DOMAIN_ID=68
+
+# ROS workspace, all custom stuff will live in this directory
+WS=~/willi_ws
+
 ```
+To make changes take effect, do a logout/login cycle
+
 ## colcon extentions
 ```
 sudo apt-get install -y python3-colcon-common-extensions
@@ -66,9 +72,7 @@ sudo usermod -aG input $USER
 ```
 ## Custom software
 ### Create workspace
-All custom ROS stuff will live in the `$WS` directory
 ```
-WS=<some_directory>
 mkdir -p $WS/src
 cd $WS/src
 git clone git@github.com:dkoslowski/willi.git
@@ -85,8 +89,24 @@ source $WS/install/setup.bash
 ```
 
 # Run
-## Run ROS nodes on the robot
-TBD
+## Build the ROS package
+```
+cd $WS
+colcon build --symlink-install
+```
+
+## Start ROS nodes
+### Sensor node (on robot)
+```
+source $WS/install/setup.bash
+ros2 run willi sensor_node
+```
+
+### Control node (on robot, new terminal window)
+```
+source $WS/install/setup.bash
+ros2 run willi sensor_node
+```
 
 ## Controlling the robot
 ### by direct command publishing
