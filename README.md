@@ -1,6 +1,10 @@
 # willi
 A simply 2-wheel robot. Based on ["Building your own Open Source robot"](https://youtube.com/playlist?list=PL_2PosskAdC25idJVMLOhu-4VAn8OYkQ1) YouTube presentation by Sid Faber from Ubuntu Robotics.
 
+![Willi 1](images/willi_1.jpg)
+![Willi 2](images/willi_2.jpg)
+![Willi 3](images/willi_3.jpg)
+
 ## Features
 - Distributed controlling system (robot/host) connected via WiFi 
 - Runs on ROS2 Jazzy and Ubuntu 24 LTS
