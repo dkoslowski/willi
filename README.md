@@ -44,11 +44,7 @@ Add to `~/.bashrc`:
 source /opt/ros/jazzy/setup.bash
 export ROS_DOMAIN_ID=68
 
-# ROS workspace, all custom stuff will live in this directory
-WS=~/willi_ws
-
 ```
-To make changes take effect, do a logout/login cycle
 
 ## colcon extentions
 ```
@@ -74,12 +70,13 @@ Add user to the "input" group to allow joystick operations
 ```
 sudo usermod -aG input $USER
 ```
-## Custom software
-### Create workspace
+### git clone
 ```
-mkdir -p $WS/src
-cd $WS/src
 git clone git@github.com:dkoslowski/willi.git
+```
+### ROS2 working directory
+```
+export WS=./willi/ros2_ws
 ```
 # Build
 ## Build custom ROS packages
@@ -93,23 +90,15 @@ source $WS/install/setup.bash
 ```
 
 # Run
-## Build the ROS package
-```
-cd $WS
-colcon build --symlink-install
-```
-
 ## Start ROS nodes
 ### Sensor node (on robot)
 ```
-source $WS/install/setup.bash
 ros2 run willi sensor_node
 ```
 
 ### Control node (on robot, new terminal window)
 ```
-source $WS/install/setup.bash
-ros2 run willi sensor_node
+ros2 run willi control_node
 ```
 
 ## Controlling the robot
