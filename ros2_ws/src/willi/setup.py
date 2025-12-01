@@ -4,7 +4,7 @@ package_name = 'willi'
 
 setup(
     name=package_name,
-    version='0.0.0',
+    version='0.0.2',
     packages=find_packages(exclude=['test']),
     data_files=[
         ('share/ament_index/resource_index/packages',
@@ -17,7 +17,11 @@ setup(
     maintainer_email='dennis.koslowski@gmx.de',
     description='Simple 2-wheeled robot',
     license='MIT',
-    tests_require=['pytest'],
+    extras_require={
+        'test': [
+            'pytest',
+        ],
+    },
     entry_points={
         'console_scripts': [
             # 'control_node = willi.my_node:main'
